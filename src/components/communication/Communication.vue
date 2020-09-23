@@ -67,7 +67,7 @@
     },
     methods: {
       h() {
-        console.log(document.getElementsByClassName('foot')[0].offsetHeight);
+        // console.log(document.getElementsByClassName('foot')[0].offsetHeight);
         this.bottom = document.getElementsByClassName('foot')[0].offsetHeight + 'px'
         this.$refs.scroll.refresh()
         // this.$refs.scroll.scrollToEndFlag(0)
