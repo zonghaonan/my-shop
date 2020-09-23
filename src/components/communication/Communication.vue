@@ -56,7 +56,6 @@
     },
     mounted() {
       this.height.height = window.innerHeight - 46 + "px";
-      // this.h()
     },
     updated() {
       this.h()
