@@ -65,7 +65,6 @@
         console.log(document.getElementsByClassName('foot')[0].offsetHeight);
         this.bottom = document.getElementsByClassName('foot')[0].offsetHeight + 'px'
         this.$refs.scroll.refresh()
-        // this.$refs.scroll.scrollToEndFlag(0)
       },
       send() {
         let date = new Date()
