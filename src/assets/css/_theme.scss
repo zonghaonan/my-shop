@@ -1,0 +1,35 @@
+$background-color-theme: pink;//背景主题颜色默认
+$background-color-theme1: red;//背景主题颜色1
+$background-color-theme2: #652BF5;//背景主题颜色2
+$background-color-theme3: deepskyblue;//背景主题颜色3
+
+$font-color-theme : #fff;//字体主题颜色默认
+$font-color-theme1 : red;//字体主题颜色1
+$font-color-theme2 : #652BF5;//字体主题颜色2
+$font-color-theme3 : deepskyblue;//字体主题颜色3
+
+@mixin font_color($color){/*通过该函数设置字体颜色，后期方便统一管理；*/
+	color:$color;
+  [data-theme="theme1"] & {
+    color:$font-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    color:$font-color-theme2;
+  }
+  [data-theme="theme3"] & {
+    color:$font-color-theme3;
+  }
+}
+
+@mixin bg_color($color){/*通过该函数设置主题颜色，后期方便统一管理；*/
+  background-color:$color;
+  [data-theme="theme1"] & {
+    background-color:$background-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    background-color:$background-color-theme2;
+  }
+  [data-theme="theme3"] & {
+    background-color:$background-color-theme3;
+  }
+}

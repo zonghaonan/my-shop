@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <keep-alive exclude='Detail'>
+      <router-view></router-view>
+    </keep-alive>
+    <tab-bar></tab-bar>
   </div>
 </template>
+<script>
+  import TabBar from 'components/TabBar'
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  export default {
+    data() {
+      return {}
+    },
+    components: {
+      TabBar
+    },
+    methods: {},
+    // created() {
+    //   let str=['111','222']
+    //   let str2=str;
+    //   str2=['111','222','333']
+    //   console.log('str='+str,'str2='+str2);
+    // },
+  }
+</script>
+<style scoped>
+  #app {
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
 
-#nav {
-  padding: 30px;
-}
+  #app::-webkit-scrollbar {
+    width: 0;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  /* #app::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+  } */
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  /* 进入组件的样式 */
+  .v-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  /* 出去组件的样式 */
+  .v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: all 0.5s ease;
+  }
 </style>
