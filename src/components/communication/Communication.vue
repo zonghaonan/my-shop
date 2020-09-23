@@ -58,10 +58,6 @@
       this.height.height = window.innerHeight - 46 + "px";
       // this.h()
     },
-    activated() {
-      // this.$refs.scroll.refresh()
-      // this.$refs.scroll.scrollToEndFlag(0)
-    },
     updated() {
       this.h()
     },
