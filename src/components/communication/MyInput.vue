@@ -1,27 +1,32 @@
 <template>
-  <div ref="div" class="my-input" contenteditable="true" @input="inputEvent($event.target.innerText)"></div>
+  <div ref="div" class="my-input"
+    @input="inputEvent($event.target.innerText)"></div>
 </template>
 <script>
   export default {
     data() {
       return {}
     },
-    props: ['inputContent'],
-    model: {
-      prop: 'inputContent',
-      event: 'change'
+    props: {
+      value: {
+        type: String,
+        default: ''
+      },
     },
     watch: {
-      inputContent() {
-        if (!this.inputContent) {
-          this.$refs.div.innerText = this.inputContent
+      value() {
+        if (!this.value) {
+          this.$refs.div.innerText = this.value;
         }
-      }
+      },
     },
     methods: {
       inputEvent(value) {
-        this.$emit('change', value)
+        this.$emit('input', value)
       },
+      // onClick() {
+      //   this.$refs.div.focus()
+      // }
     }
   }
 </script>
@@ -33,6 +38,7 @@
     padding: 5px 3px;
     overflow: auto;
     background-color: white;
+    -webkit-user-modify: read-write-plaintext-only;
   }
 
   .my-input:focus {

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <van-nav-bar title="首页">
+    <van-nav-bar ref='myNav' title="首页">
     </van-nav-bar>
     <van-tabs class="top-tab" v-if="showTopTab" :border="false" v-model="active" :color="$store.state.tabColor"
       :title-active-color="$store.state.tabColor" @change="tabChange">
@@ -88,7 +88,7 @@
       this.getHomeGoods(2)
     },
     mounted() {
-      this.height.height = window.innerHeight - 106 + "px";
+      this.height.height = window.innerHeight - 60 - this.$refs.myNav.$el.offsetHeight + "px";
       console.log(this.height.height);
       // const refresh = debounce(this.$refs.scroll.refresh, 500)
       // this.$bus.$on('imageLoadFinished', () => {

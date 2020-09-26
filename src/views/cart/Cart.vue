@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar>
+    <van-nav-bar ref="myNav">
       <template #title>
         购物车({{cartLength}})
       </template>
@@ -57,11 +57,8 @@
       CartList,
       Scroll,
     },
-    created() {
-      this.height.height = window.innerHeight - 156 + 'px'
-    },
     mounted() {
-
+      this.height.height = window.innerHeight - 110 - this.$refs.myNav.$el.offsetHeight + 'px'
     },
     activated() {
       console.log('activated');

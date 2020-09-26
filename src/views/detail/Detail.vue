@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <detail-nav-bar ref='nav' @titleClick='titleClick'></detail-nav-bar>
+    <detail-nav-bar ref='myNav' @titleClick='titleClick'></detail-nav-bar>
     <scroll :style="height" ref="scroll" :probe-type="3" @scroll="contentScroll">
       <!-- <div v-for="item in $store.state.cartList" :key="item.iid">
         {{ item }}
@@ -86,8 +86,8 @@
       Scroll
     },
     mixins: [backTopMixin],
-    created() {
-      this.height.height = window.innerHeight - 96 + "px";
+    mounted() {
+      this.height.height = window.innerHeight - 50 - this.$refs.myNav.$el.offsetHeight + "px";
       this.iid = this.$route.params.iid
       getDetail(this.iid).then((res) => {
         console.log(res);
@@ -118,11 +118,6 @@
     computed: {
       ...mapGetters(['cartLength']),
     },
-    mounted() {
-      // setTimeout(() => {
-      //   this.$refs.scroll.refresh()
-      // }, 500);
-    },
     methods: {
       ...mapActions(['addCart']),
       imageLoaded() {
@@ -152,7 +147,7 @@
               if (ps >= this.themeTopYs[i] && ps < this.themeTopYs[i + 1]) {
                 console.log(i);
                 this.currentIndex = i
-                this.$refs.nav.currentIndex = i
+                this.$refs.myNav.currentIndex = i
                 break
               }
             }
@@ -199,6 +194,6 @@
   }
 
   .van-goods-action {
-    position: relative;
+    /* position: relative; */
   }
 </style>
